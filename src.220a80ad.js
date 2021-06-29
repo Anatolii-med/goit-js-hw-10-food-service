@@ -9,6 +9,6 @@ module.exports=[{id:"XWaQXcbk0",name:"Картофель, запеченный �
 },{}],"clu1":[function(require,module,exports) {
 
 },{}],"Focm":[function(require,module,exports) {
-"use strict";var e=s(require("./templates/menu_items.hbs")),u=s(require("./menu.json"));function s(e){return e&&e.__esModule?e:{default:e}}require("./sass/main.scss"),console.log((0,e.default)(u.default));const t=document.querySelector(".js-menu");t.innerHTML=(0,e.default)(u.default);
+"use strict";var e=s(require("./templates/menu_items.hbs")),t=s(require("./menu.json"));function s(e){return e&&e.__esModule?e:{default:e}}require("./sass/main.scss");const a={LIGHT:"light-theme",DARK:"dark-theme"},c=document.querySelector(".js-menu");c.innerHTML=(0,e.default)(t.default);const o=document.querySelector("#theme-switch-toggle"),r=document.querySelector("body");r.classList.add(a.LIGHT);const n=function(){r.classList.contains(a.LIGHT)?(localStorage.setItem("themeMod","dark"),r.classList.add(a.DARK),r.classList.remove(a.LIGHT)):(localStorage.setItem("themeMod","light"),r.classList.add(a.LIGHT),r.classList.remove(a.DARK))};o.addEventListener("change",n);
 },{"./templates/menu_items.hbs":"ndDe","./menu.json":"mA8c","./sass/main.scss":"clu1"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.8603e194.js.map
+//# sourceMappingURL=/parcel-project-template/src.220a80ad.js.map
