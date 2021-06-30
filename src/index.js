@@ -19,11 +19,11 @@ const bodyTheme = document.querySelector('body');
 function themeChange(evt) {
   const checked = evt.currentTarget.checked;
   if (checked) {
-    setDarkTheme();
+    setTheme(Theme.DARK, Theme.LIGHT, true);
   }
 
   if (!checked) {
-    setLightTheme();
+    setTheme(Theme.LIGHT, Theme.DARK, false);
   }
 }
 
@@ -32,23 +32,17 @@ checkCurrentTheme();
 function checkCurrentTheme() {
   const currentTheme = localStorage.getItem('themeMod');
   if (currentTheme === Theme.LIGHT || currentTheme === null) {
-    setLightTheme();
+    setTheme(Theme.LIGHT, Theme.DARK, false);
   }
 
   if (currentTheme === Theme.DARK) {
-    setDarkTheme();
+    setTheme(Theme.DARK, Theme.LIGHT, true);
   }
 }
 
-function setDarkTheme() {
-  localStorage.setItem('themeMod', Theme.DARK);
-  bodyTheme.classList.add(Theme.DARK);
-  bodyTheme.classList.remove(Theme.LIGHT);
-  themeSwitcher.checked = true;
-}
-function setLightTheme() {
-  localStorage.setItem('themeMod', Theme.LIGHT);
-  bodyTheme.classList.add(Theme.LIGHT);
-  bodyTheme.classList.remove(Theme.DARK);
-  themeSwitcher.checked = false;
+function setTheme(currentThemeColor, oldThemecolor, checker) {
+  localStorage.setItem('themeMod', currentThemeColor);
+  bodyTheme.classList.add(currentThemeColor);
+  bodyTheme.classList.remove(oldThemecolor);
+  themeSwitcher.checked = checker;
 }
